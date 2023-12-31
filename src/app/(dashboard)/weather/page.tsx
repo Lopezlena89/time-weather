@@ -1,8 +1,9 @@
+import { Weather } from "@/components/ui/weather/Weather";
 
 export default function WeatherPage() {
   return (
-    <div>
-      <h1>Weather Page</h1>
+    <div >
+     <Weather/>
     </div>
   );
 }
