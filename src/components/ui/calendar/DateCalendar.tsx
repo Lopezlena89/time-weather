@@ -16,9 +16,8 @@ interface Props{
 
 export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date}:Props) => {
     const openSideModal = useUIModal(state => state.openSideModal);
+
     
-   
-  
     return (
     <>
         {
@@ -51,10 +50,10 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                         style={{borderRadius:'100%'}} 
                         onClick={openSideModal}>
                        {
-                        indice-dayStartMonth > days
+                        indice - dayStartMonth > days
                         ? ''
                         :
-                        indice -dayStartMonth
+                        indice - dayStartMonth
                        }
                     </span> 
                 </div>

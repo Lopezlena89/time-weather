@@ -1,8 +1,9 @@
+import { PagePrincipal } from "@/components";
 
 export default function HomePage() {
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      <PagePrincipal/>
     </div>
   );
 }

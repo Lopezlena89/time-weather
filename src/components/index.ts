@@ -7,3 +7,5 @@ export * from './ui/sidebar/MiniSideBar';
 export * from './ui/modal/Modal';
 export * from './ui/weather/WeatherClouds';
 export * from './ui/weather/Form';
+export * from './ui/dashboard/PagePrincipal';
+export * from './ui/dashboard/MiniAnotaciones';
