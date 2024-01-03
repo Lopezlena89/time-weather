@@ -6,10 +6,10 @@ export const Form = () => {
     const [formClient, setFormClient] = useState('');
     
 
-    const onChange = ({target}) =>{
+    const onChange = ({target}:any) =>{
        setFormClient(target.value);
     }
-    const onSubmit = (e) =>{
+    const onSubmit = (e:any) =>{
         e.preventDefault();
         console.log(formClient)
     }
