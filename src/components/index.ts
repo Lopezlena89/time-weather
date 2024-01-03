@@ -5,3 +5,5 @@ export * from './ui/calendar/CalendarSchedule';
 export * from './ui/navbar/Navbar';
 export * from './ui/sidebar/MiniSideBar';
 export * from './ui/modal/Modal';
+export * from './ui/weather/WeatherClouds';
+export * from './ui/weather/Form';

@@ -1,27 +1,49 @@
 'use client'
 
 import { IoChevronBackOutline,IoChevronForwardOutline } from "react-icons/io5";
-import { DateCalendar } from "./DateCalendar";
-import { weekFormat } from "@/utils/data-numbers";
-import { daysFormat } from '../../../utils/data-numbers';
-import { useEffect } from "react";
+import { DateCalendar } from './DateCalendar';
+import { monthFormat, weekFormat,daysFormat } from "@/utils/data-numbers";
+import { useEffect, useState } from "react";
+
 
 export const CalendarSchedule = () => {
     //Todo logica 
-    // const data  = new Date(2000, 7, 29);
-    // console.log(data)
-   
+    const [date, setDate] = useState<Date>();
+    const [dayNumber, setDayNumber] = useState(0);
+    const [month, setMonth] = useState(0);
+    const [year, setYear] = useState(0);
+    const [howMuchDays, setHowMuchDays] = useState(0);
+    const [dayStartMonth, setDayStartMonth] = useState('');
+
+    
+    useEffect(() => {
+        const fechaActual = new Date();
+        setDate(fechaActual);
+        setYear(fechaActual.getFullYear());
+        setMonth(fechaActual.getMonth());
+        setDayNumber(fechaActual.getDay());
+        var diasMes = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), 0).getDate();
+        setHowMuchDays(diasMes+1)
+        var indice = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), 1).getDay()
+        setDayStartMonth(weekFormat[indice]);
+        
+    }, [])
+
+    
+
     
 
   return (
+    
     <div 
         className="w-full border border-solid border-gray-300 bg-white rounded-lg shadow overflow-hidden"
         style={{height:'calc(100vh - 150px)'}}         
     >
         <div className="flex  items-center justify-between py-2 px-6">
             <div>
-                <span  className="text-lg font-bold text-gray-800">January</span>
-                <span  className="ml-1 text-lg text-gray-600 font-normal">2024</span>
+                <span  className="text-lg font-bold text-gray-800">{monthFormat[month]}</span>
+                <span  className="ml-1 text-lg text-gray-600 font-normal">{year}</span>
+               
             </div>
             <div className="border rounded-lg px-1" style={{paddingTop:'2px'}}>
                 <button 
@@ -42,11 +64,21 @@ export const CalendarSchedule = () => {
             
             {
                 daysFormat.map(day =>(
-                    <DateCalendar key={day} days={day} week={weekFormat}/>
+                    <DateCalendar 
+                        key={day} 
+                        indice={day}
+                        
+                        days={howMuchDays} 
+                        month={ month}
+                        year={year}
+                        currentDay={dayNumber}
+                        dayStartMonth={dayStartMonth}
+                        
+                        />
                 ))
             }
+
             
-         
         </div>
 
     </div>

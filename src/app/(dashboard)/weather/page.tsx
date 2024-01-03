@@ -1,9 +1,19 @@
-import { Weather } from "@/components/ui/weather/Weather";
 
-export default function WeatherPage() {
+import { Weather } from "@/components";
+
+
+import { getWeatherCountry } from "@/utils";
+
+
+export default async function WeatherPage() {
+  const iWeather  = await getWeatherCountry({country:'vancouver'});
+     
   return (
     <div >
-     <Weather/>
+      
+         <Weather {...iWeather}/>
+      
+     
     </div>
   );
 }
