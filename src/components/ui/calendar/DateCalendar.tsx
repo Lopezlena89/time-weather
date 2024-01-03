@@ -2,7 +2,7 @@
 
 import { useUIModal } from "@/store/ui/ui-modal";
 import { weekFormat } from "@/utils";
-import { useState, useEffect } from 'react';
+
 
 interface Props{
     days:number;
@@ -10,19 +10,16 @@ interface Props{
     month:number;
     year:number;
     indice:number;
-    dayStartMonth:string;
+    dayStartMonth:number;
+    date:Date
 }
 
-export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year}:Props) => {
+export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date}:Props) => {
     const openSideModal = useUIModal(state => state.openSideModal);
-    const [number, setNumber] = useState(0);
     
-
-    useEffect(() => {
-      setNumber(indice-1);
-    }, [weekFormat[indice-1] === dayStartMonth])
-
-  return (
+   
+  
+    return (
     <>
         {
             indice <= 7 
@@ -35,11 +32,10 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year}:P
                         style={{borderRadius:'100%'}} 
                         onClick={openSideModal}>
                         {
-                            (weekFormat[indice-1] === dayStartMonth) 
-                            ? number
-                            : number >= 1 && number
-
-
+                            indice < dayStartMonth+1
+                            ? ''
+                            :
+                            indice - dayStartMonth
                         }
                     </span>
                     <span className="text-sm font-bold text-gray-600">
@@ -50,12 +46,17 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year}:P
                 <div 
                 className="w-full h-[100px] border border-solid border-gray-200 p-2 flex justify-between"
                 >
-                    <span 
+                     <span 
                         className=" w-5 h-5 text-center cursor-pointer hover:bg-blue-400 hover:text-white" 
                         style={{borderRadius:'100%'}} 
                         onClick={openSideModal}>
-                        {(number < days) && number}
-                    </span>
+                       {
+                        indice-dayStartMonth > days
+                        ? ''
+                        :
+                        indice -dayStartMonth
+                       }
+                    </span> 
                 </div>
         }
     </>
