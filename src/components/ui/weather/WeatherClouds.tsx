@@ -40,20 +40,20 @@ export const Weather = async({coord,weather,main,wind,sys,timezone,name}:IWeathe
                             <div className="flex justify-center items-center"><WiThermometerExterior size={30}/>{`${main.feels_like}º`}</div>
                         </div>
                     </div>
-                    <div className="w-4/5 h-4/5 bg-slate-500 flex justify-center items-center rounded-2xl shadow-2xl ">
-                        <div className="w-4/5 h-4/5 text-white grid grid-cols-2  font-bold">
+                    <div className="w-4/5 h-4/5 bg-slate-500 flex  justify-center items-center rounded-2xl shadow-2xl ">
+                        <div className="w-4/5 h-4/5 text-white flex flex-col justify-center items-center font-bold md:flex-row">
                             <div className="flex justify-center items-center"><WiSunrise size={30}/>{sunrise}</div>
                             <div className="flex justify-center items-center"><WiSunset size={30}/>{sunset}</div>
                         </div>
                     </div>
                     <div className="w-4/5 h-4/5 bg-slate-500 flex justify-center items-center rounded-2xl shadow-2xl ">
-                         <div className="w-4/5 h-4/5 text-white grid grid-cols-2  font-bold">
+                         <div className="w-4/5 h-4/5 text-white flex flex-col justify-center items-center font-bold md:flex-row">
                             <div className="flex justify-center items-center">{`Lon:  ${coord.lon}`}</div>
                             <div className="flex justify-center items-center">{`Lat:  ${coord.lat}`}</div>
                         </div>
                     </div>
                     <div className="w-4/5 h-4/5 bg-slate-500 flex justify-center items-center rounded-2xl shadow-2xl text-white">
-                    <WiStrongWind className="text-white" size={30}/><span className="font-bold">{wind.speed}</span>
+                        <WiStrongWind className="text-white" size={30}/><span className="font-bold">{wind.speed}</span>
                     </div>
                 </div>
         </div>
