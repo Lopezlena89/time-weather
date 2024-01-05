@@ -3,11 +3,23 @@
 import { useUIModal } from "@/store/ui/ui-modal";
 import { IoCloseOutline } from "react-icons/io5";
 import clsx from "clsx"
+import { useState } from "react";
+import { useModalDataStore } from "@/store/data-modal/ui-modaldata";
 
 export const Modal = () => {
+    
 
     const isSideModalOpen = useUIModal(state => state.isSideModalOpen);
     const closeSideModal = useUIModal(state => state.closeSideModal);
+    const title = useModalDataStore(state => state.updateTitle);
+    const date = useModalDataStore(state => state.updateDate);
+    const theme = useModalDataStore(state => state.updateTheme);
+
+
+    const onSubmit = (e:any) =>{
+        e.preventDefault()
+        
+    }
 
   return (
     <div >
@@ -45,24 +57,25 @@ export const Modal = () => {
             >
                 <IoCloseOutline size={30} className="text-gray-500" />
             </div>
-            <form className="p-5 flex flex-col w-full h-full" action="" >
+            <form className="p-5 flex flex-col w-full h-full" onSubmit={onSubmit} action="" >
                 <p className="text-lg font-bold">Add Event Details</p>
                 <div className="w-full h-px bg-gray-200 my-5" />
                 <span className="font-bold mt-3">Event Title</span>
-                <input className="h-10 rounded-md bg-gray-200 mt-3" type="text" placeholder="" autoFocus={true}/>
+                <input className="h-10 rounded-md bg-gray-200 pl-2 mt-3" type="text" placeholder="Title" autoFocus={true}/>
                 <span className="font-bold mt-3">Event date</span>
-                <input className="h-10 rounded-md bg-gray-200 mt-3" type="text" placeholder="" />
+                <input className="h-10 rounded-md bg-gray-200 pl-2 mt-3" type="date" name='fecha' onChange={({target})=>setFecha(target.value)} placeholder="Time" />
                 <span className="font-bold mt-3">Select a theme</span>
                 <select className="h-10 rounded-md bg-gray-200 mt-3 cursor-pointer" name="select">
                     <option value="Blue theme" >Blue Theme</option>
                     <option value="Yellow theme">Yellow theme</option>
                     <option value="Red theme">Red theme</option>
                 </select>
-                <input 
-                    type="submit" 
-                    className="w-24 h-10 m-8 rounded-sm border border-solid border-black bg-gray-200 cursor-pointer self-center"  
-                    value='Agregar'
-                />
+                <button
+                  type="submit" 
+                  className="w-full mt-6 h-10 bg-blue-300 rounded-lg cursor-pointer"
+                >
+                  Agregar
+                </button>
 
             </form>
 

@@ -23,7 +23,7 @@ export const PagePrincipal = () => {
                 <div className="w-11/12 h-px mt-6 bg-gray-200  absolute left-3 " />
                 
                 <div className="mt-10 ml-3">
-                    <p className="font-bold text-lg text-black ">Nombre: <span className="font-normal text-sm">Luis Mariano</span></p>
+                    <p className="font-bold text-lg text-black ">Name: <span className="font-normal text-sm">Luis Mariano</span></p>
                     <p className="font-bold text-lg text-black ">Mail: <span className="font-normal text-sm">luismllv89@gmail.com</span></p>
                     
                 </div>

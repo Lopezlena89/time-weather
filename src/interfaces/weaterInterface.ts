@@ -31,5 +31,6 @@ interface IWeather{
         sunset: number;
     },
     timezone:number,
-    name:string
+    name:string,
+    
 }
