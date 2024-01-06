@@ -22,7 +22,7 @@ export const Weather = () => {
   return (
     <>
         <div 
-            className='snow_wrap w-full mt-3 p-5 border border-solid
+            className='snow_wrap w-full  p-5 border border-solid
                 rounded-lg shadow overflow-hidden flex flex-col
                 bg-no-repeat bg-cover bg-transparent bg-bottom
                 relative '

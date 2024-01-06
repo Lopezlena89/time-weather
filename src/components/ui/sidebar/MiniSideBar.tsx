@@ -4,12 +4,18 @@ import Link from "next/link"
 import { useUIStore } from "@/store"
 import { IoCloseOutline, IoPersonOutline, IoSearchOutline,IoCalendarNumberOutline,IoCloudOutline } from "react-icons/io5"
 import clsx from "clsx"
+import { logout } from "@/actions/auth/logout"
+import { IoIosLogIn } from "react-icons/io"
+import { useSession } from "next-auth/react"
 
 
 export const MiniSideBar = () => {
 
     const isSideMenuOpen = useUIStore(state => state.isSideMenuOpen);
     const closeSideMenu = useUIStore(state => state.closeSideMenu);
+
+    const { data: session } = useSession();
+    const isAuthenticated = !!session?.user;
 
   return (
     <div >
@@ -82,6 +88,18 @@ export const MiniSideBar = () => {
                 <IoCloudOutline size={20}/>
                 <span className="ml-3 text-xl">Weather</span>
             </Link>
+            {
+                isAuthenticated 
+                ?
+                <button onClick={()=>logout()}  className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all ">
+                    <IoIosLogIn size={20}/><span className="ml-3 text-xl cursor-pointer">Logout</span>
+                </button>
+                :
+                <Link href={'/auth/login'} className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all">
+                <IoIosLogIn size={20}/><span className="ml-3 text-xl cursor-pointer">Login</span>
+                </Link>
+
+              }
 
         </nav>
     </div>

@@ -66,14 +66,11 @@ export const CalendarSchedule = () => {
       
     }, [])
 
-
-    
-
   return (
     
     <div 
         className="w-full border border-solid border-gray-300 bg-white rounded-lg shadow overflow-hidden"
-        style={{height:'calc(100vh - 120px)'}}         
+        style={{height:'calc(100vh - 140px)'}}         
     >
         <div className="flex  items-center justify-between py-2 px-6">
             <div>

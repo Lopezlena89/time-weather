@@ -3,7 +3,6 @@
 import { useUIModal } from "@/store/ui/ui-modal";
 import { IoCloseOutline } from "react-icons/io5";
 import clsx from "clsx"
-import { useState } from "react";
 import { useModalDataStore } from "@/store/data-modal/ui-modaldata";
 
 export const Modal = () => {
