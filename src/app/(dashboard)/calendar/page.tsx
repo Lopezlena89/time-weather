@@ -1,20 +1,28 @@
-'use client'
-import { CalendarSchedule, MenuInput, Modal } from "@/components";
-import { useUIModal } from "@/store/ui/ui-modal";
 
-export default function CalendarPage() {
+import { auth } from "@/auth.config";
+import { CalendarForm } from "./ui/CalendarForm";
+import { getUserModal } from "@/actions/modal/get-user-modal";
+
+
+export default  async function CalendarPage() {
   
-  const sideModalOpen = useUIModal(state => state.isSideModalOpen);
+  const session = await auth();
+  
+
+  if ( !session?.user ) {
+    return (
+      <h3 className="text-5xl">500 -  No hay sesión de usuario</h3>
+    )
+  }
+  
+  const reminders = await getUserModal(session.user.id) ?? undefined;
+ 
+
   return (
     <>
-      <div  className="flex flex-col text-sm">
+      <div  className="flex justify-center items-center text-sm">
+          <CalendarForm reminders={reminders?.reminder} />
         
-        <MenuInput/>
-        <CalendarSchedule/>
-        {
-          sideModalOpen &&
-          <Modal/>
-        }
       </div>
     </>
   )

@@ -4,6 +4,7 @@ import { PagePrincipal } from "@/components";
 
 export default async function HomePage() {
   const sessiones = await auth();
+
   
   return (
     <div>

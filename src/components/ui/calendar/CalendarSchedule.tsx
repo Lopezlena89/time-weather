@@ -2,18 +2,36 @@
 
 import { IoChevronBackOutline,IoChevronForwardOutline } from "react-icons/io5";
 import { DateCalendar } from './DateCalendar';
-import { daysFormat, monthFormat, weekFormat } from "@/utils/data-numbers";
+import { daysFormat, monthFormat } from "@/utils/data-numbers";
 import { useEffect, useState } from "react";
 
 
-export const CalendarSchedule = () => {
-    //Todo logica 
+interface Props{
+    id: string;
+    userId: string;
+    title: string;
+    date: string;
+    theme: string;
+}
+
+
+export const CalendarSchedule = ({reminders}:{reminders:Props[]}) => {
+    
+    const [data, setData] = useState([])
     const [date, setDate] = useState<Date>();
     const [dayNumber, setDayNumber] = useState(0);
     const [month, setMonth] = useState(0);
     const [year, setYear] = useState(0);
     const [howMuchDays, setHowMuchDays] = useState(0);
     const [dayStartMonth, setDayStartMonth] = useState(0);
+
+    // date:Number(remind.date.split('').splice(8,10).join('')),
+
+    const remind = () =>{
+        
+
+    }
+    
 
     const contadorMonthMas = () =>{
         if(month === 11){
@@ -58,19 +76,17 @@ export const CalendarSchedule = () => {
         setMonth(fechaActual.getMonth());//Mes actual
         setYear(fechaActual.getFullYear());//Anio actual
         var diasMes = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), 0).getDate();
-        
         setHowMuchDays(diasMes)//Cuantos dias del mes tiene
         var indice = new Date(fechaActual.getFullYear(), fechaActual.getMonth(), 1).getDay()
-        
         setDayStartMonth(indice);//Que dia de la semana inicia el mes
-      
+       
     }, [])
-
+   
   return (
     
     <div 
-        className="w-full border border-solid border-gray-300 bg-white rounded-lg shadow overflow-hidden"
-        style={{height:'calc(100vh - 140px)'}}         
+        className="w-full border border-solid border-gray-300 bg-white rounded-lg shadow overflow-hidden "
+        style={{height:'calc(100vh - 100px)', fontSize:'11px'}}         
     >
         <div className="flex  items-center justify-between py-2 px-6">
             <div>
@@ -95,18 +111,26 @@ export const CalendarSchedule = () => {
         <div className="grid grid-cols-7 grid-row-6 justify-items-center p-2 text-black">
             
             {
-                daysFormat.map(day =>(
-                    <DateCalendar 
-                        key={day} 
-                        indice={day}
-                        days={howMuchDays} 
-                        month={ month}
-                        year={year}
-                        currentDay={dayNumber}
-                        dayStartMonth={dayStartMonth}
-                        date={date!}
-                        />
-                ))
+
+                daysFormat.map(day =>{
+                    const data = reminders.filter(remind => Number(remind.date.split('').splice(8,10).join('')) + 1 === day)
+                    
+                    return  <DateCalendar 
+                    key={day}
+                    indice={day}
+                    days={howMuchDays} 
+                    month={ month}
+                    year={year}
+                    currentDay={dayNumber}
+                    dayStartMonth={dayStartMonth}
+                    date={date!}
+                    dataRemind = {data}
+                />
+
+                })
+                    
+                    
+                       
             }
 
             

@@ -6,10 +6,17 @@ interface SeedUser {
     password: string;
     name: string;
   }
+interface SeedReminders {
+  userId:string
+  title:string 
+  date:string
+  theme:string
+  }
   
 
 interface SeedData {
     users: SeedUser[];
+    reminders:SeedReminders[]
    
   }
   
@@ -31,4 +38,19 @@ export const initialData: SeedData = {
   
   
     ],
+
+    reminders:[
+      {
+        userId:'58cdc46a-6e1f-4132-a087-ecd391df49f9',
+        title:'Ingles' ,
+        date:'2024-01-11',
+        theme:'Blue theme'
+      },
+      {
+        userId:'58cdc46a-6e1f-4132-a087-ecd391df49f9',
+        title:'Salir' ,
+        date:'2024-01-14',
+        theme:'Yellow theme'
+      }
+    ]
 }

@@ -10,6 +10,7 @@ export const PagePrincipal = ({sessiones}:any) => {
 
     const { data: session} = useSession();
     const isAuthenticated = !!session?.user;
+   
 
 
   return (

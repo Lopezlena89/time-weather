@@ -12,14 +12,19 @@ async function main() {
   // await Promise.all( [
 
   await prisma.user.deleteMany();
+  await prisma.reminders.deleteMany();
+  
 
   // ]);
   
-  const { users } = initialData;
+  const { users,reminders } = initialData;
 
 
   await prisma.user.createMany({
     data: users
+  });
+  await prisma.reminders.createMany({
+    data: reminders
   });
 
   console.log( 'Seed ejecutado correctamente' );

@@ -2,6 +2,7 @@
 
 import { useUIModal } from "@/store/ui/ui-modal";
 import { weekFormat } from "@/utils";
+import clsx from "clsx";
 
 
 interface Props{
@@ -12,11 +13,18 @@ interface Props{
     indice:number;
     dayStartMonth:number;
     date:Date
+    dataRemind?:{
+        date:string,
+        id:string,
+        theme:string,
+        title:string,
+        userId:string
+    }[]
 }
 
-export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date}:Props) => {
+export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date,dataRemind}:Props) => {
     const openSideModal = useUIModal(state => state.openSideModal);
-
+    
     
     return (
     <>
@@ -24,27 +32,54 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
             indice <= 7 
             ? 
                 <div 
-                className="w-full h-[100px] border border-solid border-gray-200 p-1 flex justify-between"
+                className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col "
                 >
-                    <span 
-                        className="w-5 h-5 text-center cursor-pointer hover:bg-blue-400 hover:text-white" 
-                        style={{borderRadius:'100%'}} 
-                        onClick={openSideModal}>
-                        {
-                            indice < dayStartMonth+1
-                            ? ''
-                            :
-                            indice - dayStartMonth
-                        }
-                    </span>
-                    <span className="text-sm font-bold text-gray-600">
-                        {weekFormat[indice-1]}
-                    </span>
+                    <div className="flex justify-between h-8 bg-red">
+                        <span 
+                            className="w-5 h-5 text-center cursor-pointer hover:bg-blue-400 hover:text-white" 
+                            style={{borderRadius:'100%'}} 
+                            onClick={openSideModal}>
+                            {
+                                indice < dayStartMonth+1
+                                ? ''
+                                :
+                                indice - dayStartMonth
+                            }
+                        </span>
+                        <span className="text-sm font-bold text-gray-600">
+                            {weekFormat[indice-1]}
+                            
+                        </span>
+                    </div>
+                    <div>
+                    {
+                    dataRemind?.map(remaind =>(
+                        <p className={
+                            clsx( 
+                                "rounded mt-1",
+                                {
+                                'bg-blue-400':remaind.theme === 'Blue theme'
+                                },
+                                {
+                                'bg-yellow-400':remaind.theme === 'Yellow theme'
+                                },
+                                {
+                                'bg-red-400':remaind.theme === 'Red theme'
+                                }
+                            )
+                        } 
+                        key={remaind.id}>
+                            {remaind.title}
+                        </p>
+                    ))
+                   }
+                    </div>
                 </div>
             : 
-                <div 
-                className="w-full h-[100px] border border-solid border-gray-200 p-2 flex justify-between"
-                >
+            <div 
+            className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col "
+            >   
+                <div className="flex justify-between h-8 bg-red">
                      <span 
                         className=" w-5 h-5 text-center cursor-pointer hover:bg-blue-400 hover:text-white" 
                         style={{borderRadius:'100%'}} 
@@ -56,7 +91,32 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                         indice - dayStartMonth
                        }
                     </span> 
+                    
                 </div>
+                <div>
+                {
+                    dataRemind?.map(remaind =>(
+                        <p className={
+                            clsx( 
+                                "rounded mt-1",
+                                {
+                                'bg-blue-400':remaind.theme === 'Blue theme'
+                                },
+                                {
+                                'bg-yellow-400':remaind.theme === 'Yellow theme'
+                                },
+                                {
+                                'bg-red-400':remaind.theme === 'Red theme'
+                                }
+                            )
+                        } 
+                        key={remaind.id}>
+                            {remaind.title}
+                        </p>
+                    ))
+                   }
+                </div>
+            </div>
         }
     </>
   )
