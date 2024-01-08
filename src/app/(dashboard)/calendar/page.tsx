@@ -8,6 +8,7 @@ export default  async function CalendarPage() {
   
   const session = await auth();
   
+  
 
   if ( !session?.user ) {
     return (
