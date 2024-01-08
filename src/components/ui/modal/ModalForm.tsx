@@ -46,6 +46,7 @@ export const ModalForm = () => {
           }
 
         closeSideModal();
+        location.reload();
     }
 
   return (

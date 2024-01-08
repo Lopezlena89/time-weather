@@ -7,7 +7,7 @@ export const AuthPage = ({sessiones}:any) => {
     <div className='w-full  flex flex-col' style={{height:'calc(100vh - 50px)'}}   >
         <div className="w-full h-[40%]">
             <div
-                className='relative top-16 left-6 w-full h-64 bg-white 
+                className='relative top-5 left-6 w-full h-48 bg-white 
                 rounded-xl shadow-xl  md:w-8/12 lg:w-5/12'
             >
                 <div className="flex justify-end">
