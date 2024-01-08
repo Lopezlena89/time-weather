@@ -2,12 +2,39 @@ import React from 'react'
 import { FaUser } from 'react-icons/fa6'
 import { MiniAnotaciones } from './MiniAnotaciones'
 
-export const AuthPage = ({sessiones}:any) => {
+interface Remind {
+    reminder:[{
+      id: string;
+      userId:string;
+      title: string;
+      date: string;
+      theme: string;
+    }]
+  };
+  
+  interface Session{
+    user: {
+      id: string;
+      name: string;
+      email: string;
+    },
+    expires: string;
+  }
+  
+  interface Props{
+    sessiones:Session;
+    reminders:Remind
+  }
+
+export const AuthPage = ({sessiones, reminders}:Props) => {
+
+   
+
   return (
     <div className='w-full  flex flex-col' style={{height:'calc(100vh - 50px)'}}   >
-        <div className="w-full h-[40%]">
+        <div className="w-11/12 h-[40%]">
             <div
-                className='relative top-5 left-6 w-full h-48 bg-white 
+                className='relative top-5 left w-full h-48 bg-white 
                 rounded-xl shadow-xl  md:w-8/12 lg:w-5/12'
             >
                 <div className="flex justify-end">
@@ -27,13 +54,14 @@ export const AuthPage = ({sessiones}:any) => {
                 </div>
             </div>
         </div>
-        <div className="w-full h-3/6 mt-6 ml-6 ">
-            <div className=" relative w-full h-full rounded-xl shadow-xl bg-white md:w-8/12 ">
+        <div className="w-full h-3/6 mt-6 ">
+            <div className=" relative w-11/12 h-full left rounded-xl shadow-xl bg-white md:w-8/12 ">
                <div className="h-16 w-full">
                 <p className="font-bold text-lg text-black  absolute left-5 top-8 ">Notas:</p>
                </div>
                <div className=" w-full h-px my-6 bg-gray-200  " />
-               <MiniAnotaciones notas={'Hola mundo'}/>
+               <MiniAnotaciones  reminders={reminders}/>
+               
             </div>
            
         </div>

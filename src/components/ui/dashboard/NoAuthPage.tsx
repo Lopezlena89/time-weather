@@ -2,16 +2,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { FaUser } from "react-icons/fa6";
-import { MiniAnotaciones } from "./MiniAnotaciones";
+
 
 
 export const NoAuthPage = () => {
   return (
     <>
         <div className='w-full  flex flex-col' style={{height:'calc(100vh - 50px)'}}   >
-        <div className="w-full h-[40%]">
+        <div className=" w-3/4 md:w-full h-[50%]">
             <div
-                className='relative top-16 left-6 w-full h-64 bg-white 
+                className='relative top-8 left-6 w-full h-64 bg-white 
                 rounded-xl shadow-xl  md:w-8/12 lg:w-5/12'
             >
                 <div className="flex justify-end">
@@ -29,14 +29,14 @@ export const NoAuthPage = () => {
                 </div>
             </div>
         </div>
-        <div className="w-full h-3/6 mt-6 ml-6 ">
-            <div className=" relative w-full h-full rounded-xl shadow-xl bg-white md:w-8/12 ">
+        <div className="w-3/4 md:w-full h-3/6 mt-6 ml-6 ">
+            <div className="relative w-full h-full rounded-xl shadow-xl bg-white md:w-8/12 ">
                <div className="h-16 w-full">
                 <p className="font-bold text-lg text-black  absolute left-5 top-8 ">Notas:</p>
                </div>
                <div className=" w-full h-px my-6 bg-gray-200  " />
-               <div className="flex items-center">
-               <MiniAnotaciones notas={'Mejora la experiencia solo'}/><Link href={'/auth/register'} className="font-bold text-2xl ml-5">registrate</Link>
+               <div className="flex flex-col md:flex-row items-center">
+                <Link href={'/auth/register'}>Registrate</Link>
                </div>
             </div>
            

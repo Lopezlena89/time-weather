@@ -5,8 +5,31 @@ import { useSession } from "next-auth/react";
 import { AuthPage } from "./AuthPage";
 import { NoAuthPage } from "./NoAuthPage";
 
+interface Remind {
+  reminder:[{
+    id: string;
+    userId:string;
+    title: string;
+    date: string;
+    theme: string;
+  }] 
+};
 
-export const PagePrincipal = ({sessiones}:any) => {
+interface Session{
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  },
+  expires: string;
+}
+
+interface Props{
+  sessiones:Session;
+  reminders:Remind ;
+}
+
+export const PagePrincipal = ({sessiones,reminders}:Props|any) => {
 
     const { data: session} = useSession();
     const isAuthenticated = !!session?.user;
@@ -18,7 +41,7 @@ export const PagePrincipal = ({sessiones}:any) => {
     {
         isAuthenticated 
         ?
-        <AuthPage sessiones={sessiones}/>
+        <AuthPage sessiones={sessiones} reminders={reminders}/>
         :
         <NoAuthPage/>
     }

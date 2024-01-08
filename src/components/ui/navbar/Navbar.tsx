@@ -17,7 +17,7 @@ export const Navbar = () => {
                 <Image
                     width={30}
                     height={30}
-                    src='/images/profile.jpeg'
+                    src='/images/default-profile.webp'
                     alt='photo'
                     style={{width:'30px', height:'30px',borderRadius:'100%'}}
                 >

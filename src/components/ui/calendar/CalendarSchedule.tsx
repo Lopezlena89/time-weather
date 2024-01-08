@@ -5,17 +5,22 @@ import { DateCalendar } from './DateCalendar';
 import { daysFormat, monthFormat } from "@/utils/data-numbers";
 import { useEffect, useState } from "react";
 
+interface Remind{
+    reminder:[{
+      id: string;
+      userId:string;
+      title: string;
+      date: string;
+      theme: string;
+    }] 
+  };
+  
+  interface Props {
+    reminders:Remind ;
+  }
 
-interface Props{
-    id: string;
-    userId: string;
-    title: string;
-    date: string;
-    theme: string;
-}
 
-
-export const CalendarSchedule = ({reminders}:{reminders:Props[]}) => {
+export const CalendarSchedule = ({reminders}:Props) => {
     
     const [data, setData] = useState([])
     const [date, setDate] = useState<Date>();
@@ -26,11 +31,6 @@ export const CalendarSchedule = ({reminders}:{reminders:Props[]}) => {
     const [dayStartMonth, setDayStartMonth] = useState(0);
 
     // date:Number(remind.date.split('').splice(8,10).join('')),
-
-    const remind = () =>{
-        
-
-    }
     
 
     const contadorMonthMas = () =>{
@@ -113,7 +113,7 @@ export const CalendarSchedule = ({reminders}:{reminders:Props[]}) => {
             {
 
                 daysFormat.map(day =>{
-                    const data = reminders.filter(remind => Number(remind.date.split('').splice(8,10).join('')) + 1 === day)
+                    const data = reminders.reminder.filter(remind => Number(remind.date.split('').splice(8,10).join('')) + 1 === day)
                     
                     return  <DateCalendar 
                     key={day}

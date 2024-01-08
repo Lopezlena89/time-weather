@@ -4,6 +4,14 @@ import { useUIModal } from "@/store/ui/ui-modal";
 import { weekFormat } from "@/utils";
 import clsx from "clsx";
 
+interface Remind{
+      id: string;
+      userId:string;
+      title: string;
+      date: string;
+      theme: string;
+  };
+  
 
 interface Props{
     days:number;
@@ -12,14 +20,8 @@ interface Props{
     year:number;
     indice:number;
     dayStartMonth:number;
-    date:Date
-    dataRemind?:{
-        date:string,
-        id:string,
-        theme:string,
-        title:string,
-        userId:string
-    }[]
+    date:Date;
+    dataRemind:Remind[];
 }
 
 export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date,dataRemind}:Props) => {
@@ -53,7 +55,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                     </div>
                     <div>
                     {
-                    dataRemind?.map(remaind =>(
+                    dataRemind.map(remaind =>(
                         <p className={
                             clsx( 
                                 "rounded mt-1 overflow-hidden",
@@ -95,7 +97,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                 </div>
                 <div>
                 {
-                    dataRemind?.map(remaind =>(
+                    dataRemind.map(remaind =>(
                         <p className={
                             clsx( 
                                 "rounded mt-1 overflow-hidden",
