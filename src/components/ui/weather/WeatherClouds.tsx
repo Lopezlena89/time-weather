@@ -25,6 +25,7 @@ export const Weather = () => {
         const data = await getWeatherCountry('mexico');
         updateCityName(data);
     }
+    
     useEffect(() => {
       
         getDataWeather()
