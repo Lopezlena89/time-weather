@@ -10,7 +10,7 @@ export default  async function CalendarPage() {
 
   if ( !session?.user ) {
     return (
-      <h3 className="text-5xl">500 -  No hay sesión de usuario</h3>
+      <CalendarForm reminders={undefined}/>
     )
   }
   
