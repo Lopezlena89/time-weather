@@ -56,7 +56,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                     dataRemind?.map(remaind =>(
                         <p className={
                             clsx( 
-                                "rounded mt-1",
+                                "rounded mt-1 overflow-hidden",
                                 {
                                 'bg-blue-400':remaind.theme === 'Blue theme'
                                 },
@@ -98,7 +98,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                     dataRemind?.map(remaind =>(
                         <p className={
                             clsx( 
-                                "rounded mt-1",
+                                "rounded mt-1 overflow-hidden",
                                 {
                                 'bg-blue-400':remaind.theme === 'Blue theme'
                                 },

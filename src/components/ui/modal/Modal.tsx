@@ -14,7 +14,7 @@ export const Modal = () => {
 
 
   return (
-    <div >
+    <div  className="flex justify-center items-center">
          {
             isSideModalOpen && (
                 <>
@@ -35,7 +35,7 @@ export const Modal = () => {
             //Todo efecto de slice
             className={
                 clsx(
-                    "fixed left-1/4 bottom-1/4  w-2/4 h-2/4 rounded-lg bg-white z-20 shadow-2xl transform transition-all duration-300 sm:left-1/3 sm:w-1/3 sm:h-2/4",
+                    "fixed rounded-lg right-12 w-3/4  sm:right-20  sm:bottom-1/4  sm:w-3/4 sm:h-2/4  bg-white z-20 shadow-2xl md:left-1/3  md:w-1/3 md:h-2/4",
                     {
                         "translate-x-full" :!isSideModalOpen,
                         

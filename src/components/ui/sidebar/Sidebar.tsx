@@ -42,7 +42,7 @@ export const Sidebar = () => {
           <Image
             width={50}
             height={50}
-            src='/images/profile.jpeg'
+            src='/images/default-profile.webp'
             alt='photo'
             style={{width:'50px', height:'50px',borderRadius:'100%'}}
           >
