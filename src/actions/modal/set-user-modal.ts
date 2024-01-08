@@ -26,7 +26,6 @@ export const setUserModal = async (reminder: Modal, userId: string) => {
 const createOrReplaceModal = async (reminder: Modal, id: string) => {
   try {
 
-    console.log({ id });
 
     const storedReminder = await prisma.reminders.findUnique({
       where: { id },

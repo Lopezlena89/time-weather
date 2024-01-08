@@ -21,13 +21,13 @@ interface Props{
     indice:number;
     dayStartMonth:number;
     date:Date;
-    dataRemind:Remind[];
+    dataRemind:Remind[] | undefined ;
 }
 
 export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,date,dataRemind}:Props) => {
     const openSideModal = useUIModal(state => state.openSideModal);
     
-    
+   
     return (
     <>
         {
@@ -55,7 +55,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                     </div>
                     <div>
                     {
-                    dataRemind.map(remaind =>(
+                    dataRemind?.map(remaind =>(
                         <p className={
                             clsx( 
                                 "rounded mt-1 overflow-hidden",
@@ -97,7 +97,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                 </div>
                 <div>
                 {
-                    dataRemind.map(remaind =>(
+                    dataRemind?.map(remaind =>(
                         <p className={
                             clsx( 
                                 "rounded mt-1 overflow-hidden",

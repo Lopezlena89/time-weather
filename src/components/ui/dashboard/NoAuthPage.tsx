@@ -36,7 +36,7 @@ export const NoAuthPage = () => {
                </div>
                <div className=" w-full h-px my-6 bg-gray-200  " />
                <div className="flex flex-col md:flex-row items-center">
-                <Link href={'/auth/register'}>Registrate</Link>
+                <Link className="ml-10" href={'/auth/register'}>Registrate</Link>
                </div>
             </div>
            

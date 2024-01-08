@@ -13,7 +13,7 @@ export const getUserModal = async( id: string ) => {
 
     if ( !reminder ) return null;
 
-    
+ 
 
     return {
       reminder

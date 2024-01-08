@@ -6,23 +6,18 @@ import { daysFormat, monthFormat } from "@/utils/data-numbers";
 import { useEffect, useState } from "react";
 
 interface Remind{
-    reminder:[{
-      id: string;
-      userId:string;
-      title: string;
-      date: string;
-      theme: string;
-    }] 
-  };
-  
+    reminder: { id: string; userId: string; title: string; date: string; theme: string; }[] 
+}
   interface Props {
-    reminders:Remind ;
+    reminders:Remind |undefined ;
   }
 
 
 export const CalendarSchedule = ({reminders}:Props) => {
     
-    const [data, setData] = useState([])
+    
+
+    // const [data, setData] = useState([])
     const [date, setDate] = useState<Date>();
     const [dayNumber, setDayNumber] = useState(0);
     const [month, setMonth] = useState(0);
@@ -30,7 +25,7 @@ export const CalendarSchedule = ({reminders}:Props) => {
     const [howMuchDays, setHowMuchDays] = useState(0);
     const [dayStartMonth, setDayStartMonth] = useState(0);
 
-    // date:Number(remind.date.split('').splice(8,10).join('')),
+  
     
 
     const contadorMonthMas = () =>{
@@ -113,7 +108,10 @@ export const CalendarSchedule = ({reminders}:Props) => {
             {
 
                 daysFormat.map(day =>{
-                    const data = reminders.reminder.filter(remind => Number(remind.date.split('').splice(8,10).join('')) + 1 === day)
+                    
+                    
+                    let data = reminders?.reminder.filter(remind => Number(remind.date.split('').splice(8,10).join('')) + 1 === day)
+                    
                     
                     return  <DateCalendar 
                     key={day}
@@ -124,7 +122,7 @@ export const CalendarSchedule = ({reminders}:Props) => {
                     currentDay={dayNumber}
                     dayStartMonth={dayStartMonth}
                     date={date!}
-                    dataRemind = {data}
+                    dataRemind = {data }
                 />
 
                 })

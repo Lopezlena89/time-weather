@@ -14,14 +14,14 @@ export default  async function CalendarPage() {
     )
   }
   
-  const reminders = await getUserModal(session.user.id) ?? undefined;
+  const otro= await getUserModal(session.user.id) || undefined;
   
- 
+  
   
   return (
     <>
       <div  className="flex justify-center items-center text-sm">
-          <CalendarForm reminders={reminders?.reminder} />
+          <CalendarForm reminders={otro} />
         
       </div>
     </>

@@ -15,7 +15,7 @@ export default async function HomePage() {
       </div>
     )
   }
-  console.log(sessiones)
+  
 
   const reminders = await getUserModal(sessiones.user.id) ?? undefined;
   
