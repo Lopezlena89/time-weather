@@ -32,7 +32,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
             indice <= 7 
             ? 
                 <div 
-                className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col "
+                className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col overflow-hidden "
                 >
                     <div className="flex justify-between h-8 bg-red">
                         <span 
@@ -77,7 +77,7 @@ export const DateCalendar = ({indice,dayStartMonth,days,currentDay,month,year,da
                 </div>
             : 
             <div 
-            className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col "
+            className="w-full h-[100px] border border-solid border-gray-200 p-1 flex flex-col overflow-hidden "
             >   
                 <div className="flex justify-between h-8 bg-red">
                      <span 
