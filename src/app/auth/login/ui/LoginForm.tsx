@@ -77,7 +77,7 @@ function LoginButton() {
         className={ clsx({
           "btn-primary": !pending,
           "btn-disabled": pending
-        },'w-full mb-5 h-10 bg-blue-300 rounded-lg cursor-pointer')}
+        },'w-full mb-5 h-10 bg-blue-300 rounded-lg hover:bg-blue-400 transition-all duration-150 cursor-pointer')}
         disabled={ pending }
         >
         Ingresar

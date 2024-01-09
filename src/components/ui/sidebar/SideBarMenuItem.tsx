@@ -20,8 +20,8 @@ export const SideBarMenuItem = ({path,icon,title,subTitle}:Props) => {
           </div>
 
           <div className="flex flex-col">
-            <span className="text-lg font-bold leading-5">{title}</span>
-            <span className="text-sm hidden md:block">{subTitle}</span>
+            <span className="text-lg font-semibold leading-5">{title}</span>
+            <span className="text-sm font-light hidden md:block">{subTitle}</span>
           </div>
 
         </Link>

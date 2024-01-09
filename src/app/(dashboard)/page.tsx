@@ -22,6 +22,7 @@ export default async function HomePage() {
   
   return (
     <div>
+     
       <PagePrincipal sessiones={sessiones} reminders={reminders}/>
     </div>
   );

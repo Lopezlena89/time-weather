@@ -26,9 +26,9 @@ export const MiniAnotaciones = ({reminders}:Props) => {
     <div className="ml-5 flex flex-col  justify-startitems-center">
        {
         reminders.reminder.map(remind =>(
-          <div key={remind.id} className="flex  font-bold text-xs overflow-hidden">
+          <div key={remind.id} className="flex  font-semibold text-xs overflow-hidden">
             <span >{remind.date}</span>
-            <p className="font-extralight ml-3">{remind.title}</p>
+            <p className="font-light ml-3">{remind.title}</p>
           </div>
         ))
        }

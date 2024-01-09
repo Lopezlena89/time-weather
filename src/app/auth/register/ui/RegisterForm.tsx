@@ -84,7 +84,7 @@ export const RegisterForm = () => {
           
         <button
             type="submit" 
-            className="w-full mt-6 h-10 bg-blue-300 rounded-lg cursor-pointer"
+            className="w-full mt-6 h-10 bg-blue-300 hover:bg-blue-400 transition-all duration-150  rounded-lg cursor-pointer"
         >
             Register
         </button>
