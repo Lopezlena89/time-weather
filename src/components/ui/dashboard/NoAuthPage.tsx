@@ -26,7 +26,7 @@ export const NoAuthPage = () => {
                     <div className="w-11/12 h-px mt-6 bg-gray-200  absolute left-3 " />
                     
                     <div className="w-full h-full flex justify-center items-center">
-                        <p className=" mb-10 font-semibold text-7xl bg-gray-50 opacity-5 ">Profile</p>
+                        <p className=" mb-10 font-semibold text-4xl bg-gray-50 opacity-5  md:text-7xl">Profile</p>
                     </div>
                 </div>
             </div>
@@ -44,8 +44,8 @@ export const NoAuthPage = () => {
                     </div>
                     
                 </div>
-                <div className=" w-full h-px  bg-gray-200  " />
-                    <p className=" mt-12 ml-6 font-semibold text-7xl bg-gray-50 opacity-5 ">Calendar notes</p>
+                <div className=" w-full h-px  bg-gray-200 flex justify-center items-center  " />
+                    <p className=" mt-12  font-semibold text-4xl bg-gray-50 opacity-5  text-center md:text-7xl">Calendar notes</p>
                 </div>
             
             </div>
