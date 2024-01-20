@@ -16,7 +16,7 @@ interface Props {
 export const CalendarForm = ({reminders}:Props) => {
   
     const sideModalOpen = useUIModal(state => state.isSideModalOpen);
-
+    
    
     
   return (

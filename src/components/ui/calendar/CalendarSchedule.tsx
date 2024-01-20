@@ -11,10 +11,7 @@ interface Remind{
   interface Props {
     reminders:Remind |undefined ;
   }
-
-
 export const CalendarSchedule = ({reminders}:Props) => {
-    
     
 
     // const [data, setData] = useState([])

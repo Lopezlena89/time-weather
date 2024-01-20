@@ -8,7 +8,7 @@ export const NoAuthPage = () => {
   return (
     <>
     
-        <div className='w-full flex flex-col' style={{height:'calc(100vh - 50px)'}}   >
+        <div className='w-fullflex flex-col' style={{height:'calc(100vh - 50px)'}}   >
             
             <div className=" w-3/4 md:w-full h-[50%]">
                 <div
