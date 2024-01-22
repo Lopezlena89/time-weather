@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+
 import { WiSunrise,WiSunset,WiHumidity,WiBarometer,WiThermometerExterior,WiStrongWind } from "react-icons/wi";
 import { CiTempHigh } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
@@ -11,7 +11,7 @@ interface Props{
     cityName:IWeather | undefined
 }
 
-export const SideWeather = async({cityName}:Props) => {
+export const SideWeather = ({cityName}:Props) => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const {replace} = useRouter();
