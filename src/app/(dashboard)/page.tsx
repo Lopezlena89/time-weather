@@ -2,7 +2,7 @@ import { getUserModal } from "@/actions/modal/get-user-modal";
 import { auth } from "@/auth.config";
 import { PagePrincipal } from "@/components";
 import { NoAuthPage } from "@/components/ui/dashboard/NoAuthPage";
-import { Suspense } from "react";
+
 
 
 export default async function HomePage() {
