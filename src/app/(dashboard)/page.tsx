@@ -2,6 +2,7 @@ import { getUserModal } from "@/actions/modal/get-user-modal";
 import { auth } from "@/auth.config";
 import { PagePrincipal } from "@/components";
 import { NoAuthPage } from "@/components/ui/dashboard/NoAuthPage";
+import { Suspense } from "react";
 
 
 export default async function HomePage() {
@@ -15,15 +16,14 @@ export default async function HomePage() {
       </div>
     )
   }
-  
 
   const reminders = await getUserModal(sessiones.user.id) ?? undefined;
   
   
   return (
     <div>
-     
-      <PagePrincipal sessiones={sessiones} reminders={reminders}/>
+          <PagePrincipal sessiones={sessiones} reminders={reminders}/>
     </div>
   );
 }
+

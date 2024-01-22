@@ -1,6 +1,7 @@
 
 import { auth } from "@/auth.config";
 import { MiniSideBar, Navbar, Sidebar } from "@/components";
+import { Suspense } from "react";
 
 
 export default async function DashboardLayout( { children }: {
@@ -17,7 +18,7 @@ export default async function DashboardLayout( { children }: {
         <div className=" p-4 text-slate-900 " style={{width:'calc(100vw )'}}   >
           <Navbar/>
           <MiniSideBar />
-          { children }
+         {children}
          
         </div>
 
@@ -25,3 +26,4 @@ export default async function DashboardLayout( { children }: {
     </div>
   );
 }
+
