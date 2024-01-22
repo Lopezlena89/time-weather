@@ -71,8 +71,8 @@ export const SideWeather = async({cityName}:Props) => {
                         </div>
                         <div className="w-4/5 h-4/5  bg-blue-400 flex  justify-center items-center rounded-2xl shadow-2xl ">
                             <div className="w-4/5 h-4/5 text-white flex flex-col justify-center items-center font-bold lg:flex-row md:text-sm">
-                                <div className="flex justify-center items-center"><WiSunrise size={30}/>{ new Date(cityName?.sunrise * 1000).toLocaleTimeString('es-MX')}</div>
-                                <div className="flex justify-center items-center"><WiSunset size={30}/>{ new Date(cityName?.sunset * 1000).toLocaleTimeString('es-MX')}</div>
+                                <div className="flex justify-center items-center"><WiSunrise size={30}/>{ cityName?.sunrise ? new Date(cityName?.sunrise * 1000).toLocaleTimeString('es-MX'):''}</div>
+                                <div className="flex justify-center items-center"><WiSunset size={30}/>{ cityName?.sunrise ? new Date(cityName?.sunset * 1000).toLocaleTimeString('es-MX'):''}</div>
                             </div>
                         </div>
                         <div className="w-4/5 h-4/5  bg-blue-400 flex justify-center items-center rounded-2xl shadow-2xl ">
