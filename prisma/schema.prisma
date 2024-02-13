@@ -24,5 +24,9 @@ model Reminders {
   title        String 
   date         String
   theme        String
-
+}
+model WeatherData {
+  id           String     @id @default(uuid())
+  userId       String
+  cityInfo     String 
 }

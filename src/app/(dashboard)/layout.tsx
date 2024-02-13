@@ -11,7 +11,7 @@ export default async function DashboardLayout( { children }: {
   
 
   return (
-    <div className={`bg-gray-100 overflow-hidden w-screen antialiased  selection:bg-blue-600 selection:text-white `}>
+    <div className={`bg-gray-50 overflow-hidden w-screen antialiased  selection:bg-blue-600 selection:text-white `}>
       
       <div className="flex">
         <Sidebar/>

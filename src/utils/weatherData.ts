@@ -71,6 +71,7 @@ export const getDataWeather = async(place = 'mexico') =>{
             lng,
             lat,
             desc:weather[0].description,
+            icon:weather[0].icon,
             temp:main.temp,
             max:main.temp_max,
             min:main.temp_min,

@@ -6,9 +6,7 @@ interface State {
     title: string;
     date: string;
     theme: string;
-    
   };
-
   // Methods
   setReminder: (reminder: State["reminder"]) => void;
 }

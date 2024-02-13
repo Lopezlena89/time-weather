@@ -5,6 +5,7 @@ export interface IWeather{
     nombre:string,
     lng:number,
     lat:number,
+    icon:string,
     desc:string,
     temp:number,
     max:number,
