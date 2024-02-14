@@ -33,7 +33,7 @@ export const Sidebar = () => {
 
   return (
     <div >
-      <nav className="hidden sm:flex flex-col left w-[300px] h-full min-h-screen bg-white shadow-2xl p-3 ">
+      <nav className="hidden lg:flex flex-col left w-[300px] h-full min-h-screen bg-white shadow-2xl p-3 ">
         {/* Profile */}
         {
           isAuthenticated &&

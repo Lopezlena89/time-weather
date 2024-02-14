@@ -1,97 +1,45 @@
-'use client'
-
+'use server'
 
 import { WiSunrise,WiSunset,WiHumidity,WiBarometer,WiThermometerExterior,WiStrongWind } from "react-icons/wi";
-import { CiTempHigh,CiSearch} from "react-icons/ci";
-import { PiPlusCircleThin } from "react-icons/pi";
+import { CiTempHigh} from "react-icons/ci";
 import { IWeather } from '../../../interfaces/weaterInterface';
-import { useSearchParams,usePathname,useRouter } from "next/navigation";
-import { createDataWeather } from "@/actions/weatherUser/create-date";
-import { useSession } from "next-auth/react";
-import { useWeatherInfoStore } from "@/store/data-weather/ui-dataweather";
-
-
-
-
-
+import { DataUserWeather } from "./DataUserWeather";
+import { InputWeather } from "./InputWeather";
 
 interface Props{
-    cityName:IWeather | undefined
-    weatherInfo: {
-        weatherData: {
-            id: string;
-            userId: string;
-            cityInfo: string;
-        }[];
-    } | null | undefined
+    cityName:IWeather|undefined
+    weatherInfo: { 
+        id: string; 
+        userId: string; 
+        cityName: string; 
+        icon: string; 
+        desc: string; 
+        Temp: number; 
+        Min: number; 
+        Max: number; 
+    }[] | undefined
+    
 }
 
 export const SideWeather = ({cityName,weatherInfo}:Props) => {
     
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const {replace} = useRouter();
-    const setWeatherInfo = useWeatherInfoStore(state => state.setWeatherInfo);
-    const { data: session } = useSession({
-        required: true,
-      })
-    
-     
-    const handleSearch = (term:string) =>{
-        const params = new URLSearchParams(searchParams);
-        if(term){
-            params.set('query',term)
-        }else{
-            params.delete('query')
-        }
-        replace(`${pathname}?${params.toString()}`)  
-    }
-    const saveInfoDB = () =>{
-        createDataWeather(cityName!.nombre,session!.user.id )
-        setWeatherInfo(cityName!)
-        
-    }
-
   return (
-    <div className="w-full h-full bg-transparent flex relative justify-end ">
-        <div className="w-4/12 h-full rounded-l-2xl  hidden">
-            {
-                weatherInfo?.weatherData.map((info,index) =>(
-                    <div 
-                        key={index}
-                        className="w-full h-20 p-3 border border-solid border-gray-800 rounded-xl mt-5"
-                    >
-                        {info.cityInfo}
-                    </div>
-                ))
-            }
+    <div className="w-full h-full bg-transparent flex flex-col-reverse relative md:flex-row ">
+       
+        <div className="w-full h-1/6 overflow-x-auto rounded-l-2xl flex flex-row justify-start  items-start md:w-2/12 md:h-full md:items-center md:flex-col">
+            
+            <DataUserWeather weatherInfo={weatherInfo} />
         </div>
         
-        <div className={`w-full h-full rounded-xl flex flex-col
+        <div className={`w-full h-full rounded-xl flex flex-col md:w-10/12
             
             ${cityName?.icon === '01n'  ? 'bg-violet-500':''  }
-            ${cityName?.desc === 'nubes' || cityName?.desc === 'algo de nubes' || cityName?.desc === 'muy nuboso'  ? 'bg-indigo-400':''  }
+            ${cityName?.desc === 'nubes' || cityName?.desc === 'algo de nubes' || cityName?.desc === 'muy nuboso'||cityName?.desc === 'niebla'  ? 'bg-indigo-400':''  }
             ${cityName?.desc === 'lluvia ligera' || cityName?.desc === 'nubes dispersas' || cityName?.desc === 'lluvia moderada' ?'bg-gray-400':''}
             ${cityName?.desc === 'nieve' || cityName?.desc === 'nevada ligera' ||cityName?.icon === '01d' ?'  bg-sky-400':''}
         `}>
                     <div className="flex  w-full h-16 justify-around items-center ">
-                            <div className=" flex  items-center relative ">
-                                <CiSearch className=' text-gray-500 ml-1 absolute'/>
-                                <input 
-                                    type="text" 
-                                    placeholder="Search" 
-                                    className="pl-6 h-7 rounded-lg text-gray-500 border border-solid border-gray-700 "
-                                    onChange={(event)=>handleSearch(event.target.value) }
-                                    defaultValue={searchParams.get('query')?.toString()}
-                                />
-                            </div>
-                            <div 
-                                className="flex justify-center items-center w-20 text-[15px] text-white  border border-solid border-white rounded-xl cursor-pointer active:bg-violet-300 hidden"
-                                onClick={()=>saveInfoDB()}
-                            >
-                                <PiPlusCircleThin className='' size={20}/>
-                                <span>Add</span>
-                            </div>
+                           <InputWeather/>
                             
                     </div>
                     <div className="w-full h-2/5 bg-transparent flex justify-around items-center "> 
@@ -105,7 +53,7 @@ export const SideWeather = ({cityName,weatherInfo}:Props) => {
                         </div>
                         :<div></div>
                         }
-                        {cityName?.desc === 'nubes' || cityName?.desc === 'algo de nubes' || cityName?.desc === 'muy nuboso'  || cityName?.desc === 'bruma'
+                        {cityName?.desc === 'nubes' || cityName?.desc === 'algo de nubes' || cityName?.desc === 'muy nuboso'  || cityName?.desc === 'bruma' ||cityName?.desc === 'niebla' 
                         ?   
                         <div className="w-1/2 flex justify-center items-center">
                             <div className="cloudy">

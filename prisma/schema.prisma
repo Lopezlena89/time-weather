@@ -28,5 +28,10 @@ model Reminders {
 model WeatherData {
   id           String     @id @default(uuid())
   userId       String
-  cityInfo     String 
+  cityName     String 
+  icon         String
+  desc         String
+  Temp         Int
+  Min          Int
+  Max          Int
 }

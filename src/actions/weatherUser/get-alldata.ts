@@ -3,15 +3,19 @@
 import prisma from '@/lib/prisma';
 
 
-export const getAllDataWeather = async(id:string) =>{
+export const getAllDataWeather = async(id:string|undefined) =>{
 
     try {
-        const weatherData = await prisma.weatherData.findMany({
-            where: { userId:id }
-          });
+        let weatherData;
+        if(id){
+            weatherData = await prisma.weatherData.findMany({
+                where: { userId:id }
+              });
+
+        }
 
         if(!weatherData)return;
-
+          
         return{
             weatherData
         }

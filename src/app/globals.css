@@ -32,7 +32,7 @@ background: radial-gradient(circle, rgba(27,54,255,0.3) 0%, rgba(0,165,255,0.3) 
   	width:130px;
 	height:130px;
 	border-radius: 40%;
-	z-index:120;
+	
   	position: relative;
 	background:linear-gradient( to top right, rgba(255,87,34,1) 0%,
 	rgba(251,140,0 ,1) 100%);
@@ -69,7 +69,7 @@ background: radial-gradient(circle, rgba(27,54,255,0.3) 0%, rgba(0,165,255,0.3) 
   width:130px;
 	height:130px;
 	border-radius: 40%;
-	z-index:120;
+	
   position: relative;
 	background:linear-gradient( to top right, rgba(63,81,181,1) 0%,
 	rgba(3,155,229 ,1) 40%);
@@ -106,7 +106,7 @@ animation: move 3s infinite linear ;
 	width:130px;
 	height:130px;
 	border-radius: 40%;
-	z-index:120;
+	
   position: relative;
 	background:linear-gradient( to top right,rgba(117,117,117 ,1) 0%,
 	rgba(33,33,33 ,1) 90%);
@@ -232,7 +232,7 @@ z-index: -10;
 	width:130px;
 	height:130px;
 	border-radius: 40%;
-	z-index:120;
+	
   position: relative;
 	background:linear-gradient( to top right,rgba(156,204,101 ,1) 0%,
 	rgba(38,198,218 ,1) 50%);
@@ -304,7 +304,7 @@ left:75%;
 	width:130px;
 	height:130px;
 	border-radius: 40%;
-	z-index:120;
+	
   position: relative;
 	background:linear-gradient( to bottom right,rgba(63,81,181,1) 0%,
 	rgba(171,71,188 ,1) 70%);

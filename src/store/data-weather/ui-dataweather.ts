@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface State {
-    weatherInfo: IWeather
+    weatherInfo: IWeather[]
      // Methods
     setWeatherInfo: (weatherInfo: State["weatherInfo"]) => void;
 }
@@ -11,7 +11,7 @@ interface State {
 export const useWeatherInfoStore = create<State>()(
   persist(
     (set, get) => ({
-      weatherInfo: {
+      weatherInfo: [{
         id:'',
         nombre:'',
         lng:0,
@@ -27,7 +27,7 @@ export const useWeatherInfoStore = create<State>()(
         sunrise:0,
         sunset:0,
         feels_like:0
-      },
+      }],
 
       setWeatherInfo: (weatherInfo) => {
         set({ weatherInfo });

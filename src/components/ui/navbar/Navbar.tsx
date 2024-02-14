@@ -11,7 +11,7 @@ export const Navbar = () => {
     const openSideMenu = useUIStore(state => state.openSideMenu);
 
   return (
-    <nav className="flex justify-between items-center w-full my-5 h-[40px] shadow-2xl sm:hidden">
+    <nav className="flex justify-between items-center w-full my-5 h-[40px] shadow-2xl lg:hidden">
         <div>
             <Link href='/'  className="ml-3 h-40 flex items-center ">
                 <Image

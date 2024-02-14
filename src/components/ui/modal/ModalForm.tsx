@@ -26,7 +26,7 @@ export const ModalForm = () => {
 
     const closeSideModal = useUIModal(state => state.closeSideModal);
 
-    const reminder = useReminderStore(state => state.reminder);
+    
     const setReminder = useReminderStore(state => state.setReminder);
 
     const { data: session } = useSession({

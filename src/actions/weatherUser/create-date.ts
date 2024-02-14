@@ -1,17 +1,24 @@
 'use server'
 
+import { IWeather } from '@/interfaces/weaterInterface';
 import prisma from '@/lib/prisma';
 
 
-export const createDataWeather = async(city:string,id:string) =>{
 
+export const createDataWeather = async(city:IWeather,id:string) =>{
+  
     try {
 
         if(!city || !id)return;
-
+        
         const infoToSave = {
             userId:id,
-            cityInfo:city
+            cityName:city.nombre,
+            icon:city.icon,
+            desc:city.desc,
+            Temp:city.temp,
+            Min:city.min,
+            Max:city.max
         }
         const data = await prisma.weatherData.create({
             data:infoToSave
