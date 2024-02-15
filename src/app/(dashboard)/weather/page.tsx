@@ -27,6 +27,7 @@ export default async function Page({
   const session = await auth();
   //Get data user country
   const cityName  = await getDataWeather(query); 
+  
   if(add?.value === 'true')  await createDataWeather(cityName!,session!.user.id )
   
   if(remove?.value) await deleteDataWeather(remove.value)

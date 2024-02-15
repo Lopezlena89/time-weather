@@ -13,7 +13,7 @@ export const getAllDataWeather = async(id:string|undefined) =>{
               });
 
         }
-
+        console.log(weatherData)
         if(!weatherData)return;
           
         return{
