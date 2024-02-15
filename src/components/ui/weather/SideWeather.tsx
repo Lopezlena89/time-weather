@@ -133,7 +133,7 @@ export const SideWeather = ({cityName,weatherInfo}:Props) => {
                         </div>
                     </div>
                     <div className="grid grid-cols-2 grid-rows-2 justify-items-center  w-full h-3/5 bg-transparent ">
-                    <div className="w-4/5 h-4/5 bg-transparent flex justify-center items-center rounded-2xl shadow-2xl ">
+                    <div className="w-4/5 h-4/5 flex justify-center items-center rounded-2xl shadow-2xl backdrop-blur-lg bg-white/30 ">
                             <div className="w-4/5 h-4/5  grid grid-cols-2 grid-rows-2 font-semibold">
                                 <div className="flex justify-center items-center"><WiBarometer size={30}/>{cityName?.pressure}<span className="text-xs">hPa</span></div>
                                 <div className="flex justify-center items-center"><WiHumidity size={30}/>{`${cityName?.humidity}%`}</div>
@@ -141,19 +141,19 @@ export const SideWeather = ({cityName,weatherInfo}:Props) => {
                                 <div className="flex justify-center items-center"><WiThermometerExterior size={30}/>{`${cityName?.feels_like}º`}</div>
                             </div>
                         </div>
-                        <div className="w-4/5 h-4/5  bg-transparent flex  justify-center items-center rounded-2xl shadow-2xl ">
+                        <div className="w-4/5 h-4/5   flex  justify-center items-center rounded-2xl shadow-2xl backdrop-blur-lg bg-white/30">
                             <div className="w-4/5 h-4/5  flex flex-col justify-center items-center font-bold lg:flex-row md:text-sm">
                                 <div className="flex justify-center items-center"><WiSunrise size={30}/>{ cityName?.sunrise ? new Date(cityName?.sunrise * 1000).toLocaleTimeString('es-MX'):''}</div>
                                 <div className="flex justify-center items-center"><WiSunset size={30}/>{ cityName?.sunrise ? new Date(cityName?.sunset * 1000).toLocaleTimeString('es-MX'):''}</div>
                             </div>
                         </div>
-                        <div className="w-4/5 h-4/5 bg-transparent flex justify-center items-center rounded-2xl shadow-2xl ">
+                        <div className="w-4/5 h-4/5  flex justify-center items-center rounded-2xl shadow-2xl backdrop-blur-lg bg-white/30 ">
                             <div className="w-4/5 h-4/5  flex flex-col justify-center items-center font-bold md:flex-row">
                                 <div className="flex justify-center items-center">{`Lon:  ${cityName?.lng}`}</div>
                                 <div className="flex justify-center items-center">{`Lat:  ${cityName?.lat}`}</div>
                             </div>
                         </div>
-                        <div className="w-4/5 h-4/5  bg-transparent flex justify-center items-center rounded-2xl shadow-2xl ">
+                        <div className="w-4/5 h-4/5   flex justify-center items-center rounded-2xl shadow-2xl backdrop-blur-lg bg-white/30">
                             <WiStrongWind className="" size={30}/><span className="font-bold">{cityName?.wind}</span>
                         </div>
                     </div>
